@@ -10,17 +10,21 @@ function readyNow() {
     $('body').on('click', ".deleteButton", deleteContainer);
 }
 
+// empties container div and loops through array to append all remaining containers in array
 function appendContainers () {
     $("#containerDiv").empty();
     containerArray.forEach(function(containerInArray) {
         $("#containerDiv").append(containerInArray.container);
+        console.log(containerInArray.color);
      //   if (containerInArray.color == "yellow") {
      //       containerInArray.container.style.backgroundColor = "yellow";
       //  }
       // messes up the container appending but Im not sure why
+    
     })
 }
 
+// adds to container counters, pushes new container to array, calls appendContainers()
 function pushContainerToArray () {
     containerCount++;
     let container = `<div class="container" id="${containerCount}"><h3 class="counter">${containerCount}</h3><button class="yellowButton button">Yellow</button><button class="deleteButton button">Delete</button></div>`
@@ -32,6 +36,7 @@ function pushContainerToArray () {
     appendContainers();
 }
 
+// makes container yellow, changes color property of array object to yellow
 function makeYellow () {
     $(this).parent().css("background-color", "yellow");
     let id = $(this).parent().attr('id');
@@ -41,6 +46,8 @@ function makeYellow () {
         }
     }
 }
+
+// removes matching object of container from array, calls appendContainers() to empty container div and reappend containers
 function deleteContainer () {
     let id = $(this).parent().attr('id');
     console.log(id);
