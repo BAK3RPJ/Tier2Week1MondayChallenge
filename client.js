@@ -12,8 +12,12 @@ function readyNow() {
 
 function appendContainers () {
     $("#containerDiv").empty();
-    containerArray.forEach(function(container) {
-        $("#containerDiv").append(container.container);
+    containerArray.forEach(function(containerInArray) {
+        $("#containerDiv").append(containerInArray.container);
+     //   if (containerInArray.color == "yellow") {
+     //       containerInArray.container.style.backgroundColor = "yellow";
+      //  }
+      // messes up the container appending but Im not sure why
     })
 }
 
@@ -22,13 +26,20 @@ function pushContainerToArray () {
     let container = `<div class="container" id="${containerCount}"><h3 class="counter">${containerCount}</h3><button class="yellowButton button">Yellow</button><button class="deleteButton button">Delete</button></div>`
     containerArray.push( {
         container: container,
-        arrayNumber: `${containerCount}`
+        arrayNumber: `${containerCount}`,
+        color: "red"
     });
     appendContainers();
 }
 
 function makeYellow () {
     $(this).parent().css("background-color", "yellow");
+    let id = $(this).parent().attr('id');
+    for (container of containerArray) {
+        if (id == container.arrayNumber) {
+            container.color = "yellow";
+        }
+    }
 }
 function deleteContainer () {
     let id = $(this).parent().attr('id');
@@ -38,4 +49,6 @@ function deleteContainer () {
     containerArray = newArray;
     appendContainers();
 }
+
+// when deleting a container, all divs turn back to red, I need to find a way to set a property that stays with that container when the array is re pushed.
 
