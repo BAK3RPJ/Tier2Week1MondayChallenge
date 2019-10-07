@@ -15,8 +15,10 @@ function appendContainers () {
     $("#containerDiv").empty();
     containerArray.forEach(function(containerInArray) {
         $("#containerDiv").append(containerInArray.container);
-        console.log(containerInArray.color);
-     //   if (containerInArray.color == "yellow") {
+        console.log(containerInArray.color); 
+     
+     
+        //   if (containerInArray.color == "yellow") {
      //       containerInArray.container.style.backgroundColor = "yellow";
       //  }
       // messes up the container appending but Im not sure why
