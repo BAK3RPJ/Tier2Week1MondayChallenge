@@ -16,6 +16,10 @@ body {
     height: 100%;
 }
 
+.counter {
+    align-self: flex-start;
+}
+
 .container {
     background-color: red;
     display: flex;
