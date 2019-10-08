@@ -1,7 +1,7 @@
 $(document).ready(readyNow);
 
 let containerCount = 0;
-let containerArray = [];
+// let containerArray = [];
 
 function readyNow() {
     console.log("in jquery");
@@ -12,7 +12,7 @@ function readyNow() {
 
 // empties container div and loops through array to append all remaining containers in array
 /* This function is only necessary if I use an array, and push from there. I wanted to do this because
-it seemed more of along the lines of where we are headed, wiping the DOM and pulling the information from the 
+it seemed more along the lines of where we are headed, wiping the DOM and pulling the information from the 
 database everytime we alter it, but I couldn't get the yellow color to remain. I think this problem is solvable more
 intuitively once we get to "state" in react. */
 /* function appendContainers () {
